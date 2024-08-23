@@ -316,26 +316,8 @@ history = model.fit(img_train,
                     callbacks=best_model
                     )
 
-# Total RAM use seems to be about 16GB for image data allocation and then another 12-14GB for training memory storage
-
-# Seems minor easier than major axis training - 100 still not in e-04 yet even with padding and adjusted lr
-
-# blows up on ws-1 - use ws3
 print("Best model epoch had val MSE loss of: %f and a val MAE of : %f" % (
 min(history.history['val_loss']), min(history.history['val_mae'])))
-
-# For 200E MajorAx: Best model epoch had val MSE loss of: 0.001140 and a val MAE of : 0.018468
-# 400E MajorAx: Best model epoch had val MSE loss of: 0.000841 and a val MAE of : 0.013374 8/14 - need to verify
-# 400E Y center: best model epoch had val MSE loss of: 0.156141 and a val MAE of : 0.267095 8/14 - need to verify
-# 400E Alpha Angles: best model epoch had val MSE loss of: 0.008006 and val MAE of: 0.060736
-# 310E Minor Axis: loss: 2.9878e-04 - mae: 0.0113 - val_loss: 7.1638e-04 - val_mae: 0.0108
-# Alpha Ring #s 99.97% classification accuracy (Weights[4]) - need to verify
-# DO 1 BIG VERIFIY TMR! FOR ALL DSETS!
-
-# For 5k imgs, 0,3 Noise, 100E major axis: Best model epoch had val MSE loss of: 0.047745 and a val MAE of : 0.107351
-# Alpha angles version of noise: Best model epoch had val MSE loss of: 0.110973 and a val MAE of : 0.216249
-# 400E: for alpha angles - noised: Best model epoch had val MSE loss of: 0.082603 and a val MAE of : 0.174519
-
 
 # Load in model weights from best epoch, val-loss wise, to evaluate with - Holds 800E 15x15 RRRL
 model.load_weights(weights[6])
@@ -406,10 +388,6 @@ def mad_plotter(index1, index2, test_imgs, test, model_test_data):
 
 
 mad_plotter(69, 85, img_test, test, model_test_data)
-
-# Appears that when noise is significant relative to ring intensity, model tends to underestimate. When noise is lower, to non-significatn lvl,
-# model tends to overestimate (from 400E noised 0.3 alpha angles testing of 5k imgs)
-
 
 # For On-Demand Evaluation
 # For On-Demand Evaluation
