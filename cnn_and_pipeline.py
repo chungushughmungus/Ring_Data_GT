@@ -264,24 +264,6 @@ model.summary()
 
 # test = utils.plot_model(model, to_file='model_plot.png', show_shapes=True, show_layer_names=True)
 
-# This is all on scaled data (Mean 0, STD 1)
-# for relu, tanh, flatten, relu, 0.07978 val loss mse was best for 100 epochs, 0.0001 lr adam
-# for tanh, relu, flatten, tanh, 0.042266 val loss mse was best for 100 epochs, 0.0001 lr adam, 0.042562 and 0.0403 val loss at 180 epochs
-# for tanh relu tanh linear at 180 epochs 0.0381 val loss 0.0001 lr adam!
-# For Tanh Relu Tanh Linear with 15x15 kernels, 180 epochs, got 0.012577 val loss, 0.061716 MAE?!?!?!, 0.013857 val loss, 0.057147 MAE at 300 epochs, 0.00001 lr adam
-# tanh/sigmoid/tanh is pooping itself lol - can't break below 0.5 unfortunately even at 200 epochs
-# tanh silu tanh not too good - 180 epochs, 0.098776 val loss, 0.097 w 0.2 dropout after 2 conv layers
-# RRTL 300E 0.00001LR, 0.0118 Val MSE, MAE 0.0558 (15x15) - updating to 0.000001LR bounces around slowly - 800 epochs to 0.0377 val MSE
-# RRTL with 20x20 300E 10^-5LR gets 0.013275 and MAE 0.057467 - 15x15 use better since less computational load, similar results
-# TRRL with 20x20 300E 10^-5LR val MSE 0.0211, mae 0.0689 - not as good
-# RRRL 15x15 300E 10^-5LR val MSE 0.008286 val MAE 0.04987 lol its pretty good (400 gets 0.005978, 0.042614 - no stop - seems to trend downwards too)
-# 600E, RRRL gets 0.0012, 0.0191 mae - bounces around this region
-# 800E, RRRL gets 0.001315, 0.015921 mae - bounces. Probably time to switch up filters
-# RRRL 200E 32,64 filters conv2D get 0.006807, MAE 0.035230 - slightly better than RRRL at 300E; at 400 drop to 0.0057, 0.0755RMSE
-
-# best_model = keras.callbacks.ModelCheckpoint('/nsls2/data1/hex/proposals/2024-2/pass-316730/cluster_msg/mdl_wts_alpha_ring#1_full_dset.keras', save_best_only=True, monitor='val_loss', mode='min')
-
-
 # List to hold files for the weights for each dataset trained on model (so far only 2 since others were on old model)
 # This Y-center weight set has been overwritten - NO LONGER USABLE WITHOUT TRAINING
 weights = ["your file paths"
