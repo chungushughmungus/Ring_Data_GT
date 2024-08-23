@@ -17,7 +17,7 @@ import math
 # Directories to pull/load files from/to
 
 # for combined testing
-output_base = "/nsls2/data/hex/proposals/2024-2/pass-316730/Frank_data/Perkin_Elmer_Test_Imgs/Testing_Alpha_Ring_Images"  # NOT GENERATING ON ACTUAL USE DATASET!
+output_base = "your file path"  # NOT GENERATING ON ACTUAL USE DATASET!
 
 # Center Values - You can change these to change ring centers
 x0 = 128

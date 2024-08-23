@@ -15,12 +15,8 @@ img_width = 256
 
 # THESE ARE THE TFRECORDS TO LOAD IN!!! - choose the processed files/datasets you want to load in
 # # 5k image dataset here
-file_path_train = "/nsls2/data1/hex/proposals/2024-2/pass-316730/train_4000_35.98769953639895_21.202594370489898_major_ax.tfrecord"
-file_path_test = "/nsls2/data1/hex/proposals/2024-2/pass-316730/test_1000_36.04758791480931_21.782495957539858_major_ax.tfrecord"
-
-# # Full 30k image dataset here
-# file_path_train = "/nsls2/data1/hex/proposals/2024-2/pass-316730/train_24000_38.02857273998039_24.649526570720813_major_ax.tfrecord"
-# file_path_test = "/nsls2/data1/hex/proposals/2024-2/pass-316730/test_6000_38.03048637003894_24.569419260555964_major_ax.tfrecord"
+file_path_train = "your file path"
+file_path_test = "your file path"
 
 
 gpus = tf.config.list_physical_devices('GPU')
@@ -41,7 +37,7 @@ if gpus:
 # Runs - CUDA GPU initialized and works
 
 # Filepath to folder
-main_file_path = "/nsls2/data1/hex/proposals/2024-2/pass-316730/Frank_data/Perkin_Elmer_Test_Imgs/Alpha_Ring_Images"
+main_file_path = "main file path to folder"
 
 
 # CNN File (load in + create dataset + cnn)
@@ -137,7 +133,7 @@ model = tf.keras.models.Sequential([
 # output shapes of label and image are dif - need them to line up, so get on it@(255 and 4,)
 model.summary()
 
-weight_path = "/nsls2/data1/hex/proposals/2024-2/pass-316730/cluster_msg/tfrecord_weights/test_weights.keras"
+weight_path = "path to store weights"
 best_model = keras.callbacks.ModelCheckpoint(weight_path)
 
 # Optimizer - for quick change in optimizer function and learning rate

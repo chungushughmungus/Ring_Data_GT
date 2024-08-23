@@ -36,7 +36,7 @@ if gpus:
 # Runs - CUDA GPU initialized and works
 
 # Filepath to folder
-main_file_path = "/nsls2/data1/hex/proposals/2024-2/pass-316730/Frank_data/Perkin_Elmer_Test_Imgs/Alpha_Ring_Images"
+main_file_path = "Your file path"
 
 
 # Number of images to load in

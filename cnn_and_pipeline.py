@@ -29,8 +29,7 @@ if gpus:
 
 # This is the combined dataset
 # 1st feed in data, plot to make sure coordinate systems look good (origin loaded in should match origin loaded out + how it's processed in here)
-# main_file_path = "/nsls2/data1/hex/proposals/2024-2/pass-316730/Frank_data/Perkin_Elmer_Test_Imgs/Alpha_Ring_Images"
-main_file_path = "/nsls2/data1/hex/proposals/2024-2/pass-316730/Frank_data/Perkin_Elmer_Test_Imgs/Noise_0.3_Alpha_Ring_Images"
+main_file_path = "your file path"
 material_imgs = sorted(list(glob.glob(main_file_path + "/*.tif")))[:5000]
 materials_data = sorted(list(glob.glob(main_file_path + "/*.csv")))[:5000]
 
@@ -285,28 +284,7 @@ model.summary()
 
 # List to hold files for the weights for each dataset trained on model (so far only 2 since others were on old model)
 # This Y-center weight set has been overwritten - NO LONGER USABLE WITHOUT TRAINING
-weights = ['/nsls2/data1/hex/proposals/2024-2/pass-316730/cluster_msg/CNN_Weights_OLD/mdl_wts_Y-center_full_dset.keras',
-           # Y-center coordinates !!! OVERWRITTEN!!!
-           # THIS MAJOR AXIS WEIGHT SET HAS BEEN OVERWRITTEN - NO LONGER USABLE WITHOUT TRAINING
-           '/nsls2/data1/hex/proposals/2024-2/pass-316730/cluster_msg/CNN_Weights_OLD/mdl_wts_major_ax_full_dset.keras',
-           # Major Axis - untested - PRIOR WAS___OVERWRITTEN ACCIDENTALLY FOR NOISE!___
-           '/nsls2/data1/hex/proposals/2024-2/pass-316730/cluster_msg/CNN_Weights_OLD/mdl_wts_minor_ax_full_dset.keras',
-           # Minor Axis
-           '/nsls2/data1/hex/proposals/2024-2/pass-316730/cluster_msg/CNN_Weights_OLD/mdl_wts_alpha_angles_full_dset.keras',
-           # Alpha Angles
-           '/nsls2/data1/hex/proposals/2024-2/pass-316730/cluster_msg/CNN_Weights_OLD/mdl_wts_alpha_ring#1_full_dset.keras',
-           # Rings Classified !!!
-
-           # NOISY SECTION of WEIGHTS
-           '/nsls2/data1/hex/proposals/2024-2/pass-316730/cluster_msg/CNN_Weights_OLD/mdl_wts_noise_0.3 Y-center_full_dset.keras',
-           # NOISE LEVEL 0.3 Y-center coordinates !!!
-           '/nsls2/data1/hex/proposals/2024-2/pass-316730/cluster_msg/CNN_Weights_OLD/mdl_wts_major_ax_CL_full_dset.keras',
-           # NOISE LEVEL 0.3 Major Axis !!!
-           '/nsls2/data1/hex/proposals/2024-2/pass-316730/cluster_msg/CNN_Weights_OLD/mdl_wts_alpha_angles_0.3N_full_dset.keras',
-           # Noisy 9,3 Alpha Angles
-           '/nsls2/data1/hex/proposals/2024-2/pass-316730/cluster_msg/CNN_Weights_OLD/mdl_wts_alpha_ring#1_0.3N_full_dset.keras'
-           # Noisy Level 0.3 Rings Classified !!!
-
+weights = ["your file paths"
            ]
 
 best_model = keras.callbacks.ModelCheckpoint(weights[5])
